@@ -2,11 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 import openai
 from unicodedata import name
 from flask import Flask, render_template, request, flash, redirect, url_for, session
-from query_builder_app import query_builder_app
-
 from firebase import signup, signin, auth
 from flask import Flask, render_template, request, flash, redirect, url_for, session
-from query_builder_app import index,query,execute_query,get_table_names,generate_sql_query
 import os
 app = Flask(__name__)
 
