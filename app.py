@@ -96,9 +96,9 @@ def main_dashboard():
                 # Redirect to the specified URL when the action is 'query_builder'
                 return redirect("https://qdr.onrender.com")
 
-           # elif action == 'user_detector':
-                # Implement User Detector logic (you need to provide this code)
-               # return redirect(url_for('user_detector'))
+            elif action == 'user_detector':
+            # Redirect to 'anu.html' page
+                return redirect("https://debug-portal.onrender.com")
             if action == 'user_dashboard':
                 return redirect(url_for("user_dashboard", username=username))
 
