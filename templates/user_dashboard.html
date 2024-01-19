@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+
+        form {
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+
+
+
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .message strong {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><center>User Dashboard {{ username.split('@')[0] }}</center></h1>
+
+            <br>
+            <h2>Send Message</h2>
+            <form action="{{ url_for('user_dashboard', username=username) }}" method="post" class="message-form">
+                <label for="recipient">Send Message to:</label>
+                <select name="recipient">
+                    <option value="admin">Admin</option>
+                    <option value="openai">OpenAI</option>
+                </select>
+                <br>
+                <label for="message">Message:</label>
+                <input type="text" id="message" name="message" required>
+                <br>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+
+        <div class="container" align="right">
+            <h2>Queries and Responses</h2>
+            {% for query, response in data.items() %}
+                <div class="message">
+                    <strong>{{ query }}</strong><br>
+                    {% for item in response %}
+                        {{ item }}<br>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+
+
+</body>
+</html>
