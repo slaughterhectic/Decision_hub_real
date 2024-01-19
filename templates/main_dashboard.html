@@ -73,7 +73,7 @@
                 <li><a href="{{ url_for('main_dashboard') }}">Home</a></li>
                 <li><form method="GET" action="https://qdr.onrender.com"><button type="submit">Query Builder</button></form></li>
 
-                <li><form method="POST" action="{{ url_for('user_dashboard') }}"><input type="hidden" name="action" value="user_detector"><button type="submit">Debugger</button></form></li>
+                <li><form method="GET" action="https://debug-portal.onrender.com"><button type="submit">Debugger</button></form></li>
                 <li><form method="POST" action="{{ url_for('user_dashboard') }}"><input type="hidden" name="action" value="communication_with_admin"><button type="submit">Communication with Admin</button></form></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             </ul>
